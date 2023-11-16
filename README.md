@@ -84,6 +84,4 @@ docker-compose build --no-cache
 docker-compose up -d
 ~~~
 
-Для проверки работоспособности запустить script_requests.py: `python script_requests.py` 
-# Web-application
-# Web-application
+Для проверки работоспособности запустить script_requests.py: `python script_requests.py`

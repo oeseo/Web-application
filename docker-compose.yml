@@ -1,0 +1,34 @@
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+    - ./db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ali301194
+      MONGO_INITDB_ROOT_PASSWORD: Ali123456
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongo
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ali301194
+      ME_CONFIG_MONGODB_ADMINPASSWORD: Ali123456
+      ME_CONFIG_MONGODB_URL: mongodb://ali301194:Ali123456@mongo:27017/
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    depends_on:
+      - mongo
+    ports:
+      - 8080:8080

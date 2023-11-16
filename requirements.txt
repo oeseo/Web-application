@@ -1,0 +1,15 @@
+asgiref==3.7.2
+certifi==2023.7.22
+charset-normalizer==3.3.2
+distlib==0.3.7
+Django==4.2.7
+dnspython==2.4.2
+filelock==3.13.1
+idna==3.4
+platformdirs==3.11.0
+pymongo==4.6.0
+requests==2.31.0
+sqlparse==0.4.4
+typing_extensions==4.8.0
+urllib3==2.1.0
+virtualenv==20.24.6
