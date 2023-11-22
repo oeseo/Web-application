@@ -21,15 +21,14 @@ class ValidForm:
         self.type_form = self.valid_date()
 
     def valid_date(self):
-        try:
-            datetime.strptime(self.value, '%Y-%m-%d')
-            return 'date'
-        except ValueError:
+        formats = ['%Y-%m-%d', '%d.%m.%Y']
+        for fmt in formats:
             try:
-                datetime.strptime(self.value, '%d.%m.%Y')
+                datetime.strptime(self.value, fmt)
                 return 'date'
             except ValueError:
-                return self.valid_phone()
+                continue
+        return self.valid_phone()
 
     def valid_phone(self):
         if (self.value.startswith('+7') and len(self.value) ==
